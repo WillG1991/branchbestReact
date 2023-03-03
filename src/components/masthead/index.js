@@ -9,46 +9,46 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  masthead: {
-    backgroundColor: "#343a40",
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(8),
-  },
-  title: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontFamily: "harmanScript",
-    marginBottom: theme.spacing(2),
-  },
-  subtitle: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontFamily: "harmanSlab",
-    marginBottom: theme.spacing(4),
-  },
-  divider: {
-    backgroundColor: "#fff",
-    height: "1px",
-    width: "50px",
-    marginBottom: theme.spacing(4),
-  },
-  text: {
-    color: "#fff",
-    marginBottom: theme.spacing(5),
-  },
-  dailySpecials: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  orderBtn: {
-    marginTop: theme.spacing(3),
-    backgroundColor: "#f4623a",
-    color: "#fff",
-    "&:hover": {
-      backgroundColor: "#f4623a",
+    masthead: {
+      backgroundColor: "black",
+      paddingTop: theme.spacing(10),
+      paddingBottom: theme.spacing(8),
     },
-  },
-}));
+    title: {
+      color: "#fff",
+      fontWeight: "bold",
+      fontFamily: "harmanScript",
+      marginBottom: theme.spacing(2),
+    },
+    subtitle: {
+      color: "#fff",
+      fontWeight: "bold",
+      fontFamily: "harmanSlab",
+      marginBottom: theme.spacing(4),
+    },
+    divider: {
+      backgroundColor: "#fff",
+      height: "1px",
+      width: "50px",
+      marginBottom: theme.spacing(4),
+    },
+    text: {
+      color: "#fff",
+      marginBottom: theme.spacing(5),
+    },
+    dailySpecials: {
+      color: "#fff",
+      fontWeight: "bold",
+    },
+    orderBtn: {
+      marginTop: theme.spacing(3),
+      backgroundColor: "#f4623a",
+      color: "#fff",
+      "&:hover": {
+        backgroundColor: "#f4623a",
+      },
+    },
+  }));
 
 export default function Masthead() {
   const classes = useStyles();

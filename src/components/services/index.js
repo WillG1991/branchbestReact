@@ -11,6 +11,8 @@ import { Popover } from "@material-ui/core";
 import { AccessTime, Favorite, LocalShipping } from "@material-ui/icons";
 import breakfastLunchOne from "../../assets/images/menu/breakfastLunchOne.jpg"
 import breakfastLunchTwo from "../../assets/images/menu/breakfastLunchTwo.jpg"
+import dinnerOne from "../../assets/images/menu/dinnerOne.jpg"
+import dinnerTwo from "../../assets/images/menu/dinnerTwo.jpg"
 
 const useStyles = makeStyles((theme) => ({
   pageSection: {
@@ -70,7 +72,6 @@ const [dinnerOpen, setDinnerOpen] = React.useState(false);
     setDinnerAnchorEl(null);
     setDinnerOpen(false);
   };
-
   //dinner pop up end//
 
   return (
@@ -118,9 +119,9 @@ const [dinnerOpen, setDinnerOpen] = React.useState(false);
         </Link>
       </p>
       <p>
-        <Link href="https://branchburgs-best.square.site/dinner">
-          Dinner
-        </Link>
+      <Link href="#" onClick={handleDinnerClick}>
+                  Dinner Menu
+                </Link>
       </p>
       <p>
         <Link href="https://branchburgs-best.square.site/daily-specials">
@@ -148,6 +149,24 @@ const [dinnerOpen, setDinnerOpen] = React.useState(false);
 >
   <img src={breakfastLunchOne} alt="Breakfast" />
   <img src={breakfastLunchTwo} alt="Lunch" />
+</Popover>
+<Popover
+  open={dinnerOpen}
+  anchorEl={dinnerAnchorEl}
+  onClose={handleDinnerClose}
+  anchorOrigin={{
+    vertical: "bottom",
+    horizontal: "center",
+  }}
+  transformOrigin={{
+    vertical: "top",
+    horizontal: "center",
+  }}
+>
+  <div style={{ display: "flex", flexDirection: "column" }}>
+    <img src={dinnerOne} alt="Dinner Menu" style={{ maxWidth: "100%", marginBottom: 16 }} />
+    <img src={dinnerTwo} alt="Dinner Menu" style={{ maxWidth: "100%" }} />
+  </div>
 </Popover>
   </div>
 </Grid>
