@@ -1,67 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem } from '@material-ui/core';
-import { Menu as MenuIcon } from '@material-ui/icons';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { AppBar, Toolbar, Button } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: '#000',
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  homeButton: {
+    marginLeft: 0,
+    marginRight: theme.spacing(2),
+  },
+  toolbar: {
+    justifyContent: 'center',
+  },
+}));
 
 function AppHeader() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [showBackground, setShowBackground] = useState(true);
-
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleScroll = () => {
-    if (window.pageYOffset > 0) {
-      setIsScrolled(true);
-      setShowBackground(false);
-    } else {
-      setIsScrolled(false);
-      setShowBackground(true);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setShowBackground(false);
-    }, 5000);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
+  const classes = useStyles();
 
   return (
-    <AppBar position="fixed" style={{ backgroundColor: showBackground ? 'transparent' : 'white', boxShadow: 'none' }}>
-      <Toolbar>
-      <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: isScrolled ? 'black' : 'white', fontFamily: 'Helvetica' }}>
-  Branchburg's Best
-</Typography>
-        <IconButton onClick={handleMenuOpen} edge="end" color={isScrolled ? 'primary' : 'inherit'} aria-label="menu">
-          <MenuIcon />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-          style={{ color: isScrolled ? 'black' : 'white' }}
-        >
-          <MenuItem onClick={handleMenuClose} href="#services" style={{ color: isScrolled ? 'black' : 'white' }}>Hours</MenuItem>
-          <MenuItem onClick={handleMenuClose} href="#portfolio" style={{ color: isScrolled ? 'black' : 'white' }}>Portfolio</MenuItem>
-          <MenuItem onClick={handleMenuClose} href="https://branchburgsbest.square.site/s/order" style={{ color: isScrolled ? 'black' : 'white' }}>Order</MenuItem>
-        </Menu>
+    <AppBar position="static" className={classes.appBar}>
+<Toolbar className={classes.toolbar}>
+        <Button className={classes.homeButton} color="inherit">Home</Button>
+        <Button className={classes.button} color="inherit">About</Button>
+        <Button className={classes.button} color="inherit">Menu</Button>
+        <Button className={classes.button} color="inherit">Catering</Button>
+        <Button className={classes.button} color="inherit">Contact</Button>
+        <Button className={classes.button} color="inherit">Gallery</Button>
+        <Button className={classes.button} color="inherit">Order Now</Button>
       </Toolbar>
     </AppBar>
   );

@@ -1,83 +1,94 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Grid, Typography } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import HeroImage from '../../assets/images/heroImage.jpeg';
+import Fade from 'react-reveal/Fade';
+
 
 const useStyles = makeStyles((theme) => ({
-    hero: {
-      position: 'relative',
-      backgroundColor: 'black',
-      height: '100vh',
-    },
-    overlay: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    },
-    content: {
-      position: 'relative',
-      zIndex: 1,
-      padding: theme.spacing(3),
-      [theme.breakpoints.up('md')]: {
-        padding: theme.spacing(6),
-      },
-    },
-    title: {
-      color: 'white',
-      fontWeight: 'bold',
-      fontFamily: 'HarmanScript, sans-serif',
-      textShadow: '2px 2px #000000',
-    },
-    subTitle: {
-      color: 'white',
-      fontWeight: 'bold',
-      fontFamily: 'HarmanSlab, sans-serif',
-      textShadow: '2px 2px #000000',
-      marginTop: theme.spacing(1),
-      marginBottom: theme.spacing(2),
-    },
-    divider: {
-      backgroundColor: 'white',
-      height: theme.spacing(0.25),
-      width: '50px',
-      margin: '0 auto',
-      marginBottom: theme.spacing(3),
-    },
-    tagline: {
-      color: 'white',
+  hero: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#F4F4F4',
+    padding: theme.spacing(8, 0),
+  },
+  heroImage: {
+    maxWidth: '100%',
+    height: 'auto',
+    [theme.breakpoints.down('sm')]: {
       marginBottom: theme.spacing(4),
     },
-    actionButtons: {
-      marginTop: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(4),
     },
-  }));
+  },
+  heroContent: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+    },
+  },
+  heroTitle: {
+    fontWeight: 'bold',
+    marginBottom: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      fontSize: '4rem',
+      textAlign: 'left',
+    },
+  },
+  heroDescription: {
+    marginBottom: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'left',
+    },
+  },
+  heroButtons: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+    [theme.breakpoints.up('md')]: {
+      justifyContent: 'flex-start',
+    },
+  },
+  button: {
+    marginRight: theme.spacing(2),
+    color: "white",
+    backgroundColor: "black"
+  },
+}));
 
 const Hero = () => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.hero}>
-      <Grid item xs={12}>
-        <div className={classes.overlay} />
-        <div className={classes.content}>
-          <Typography variant="h1" className={classes.title}>
-            Branchburg's
-          </Typography>
-          <Typography variant="h1" className={classes.subTitle}>
-            Best
-          </Typography>
-          <div className={classes.divider} />
-          <Typography variant="h5" className={classes.tagline}>
-            Where It Always Feels Like Home
-          </Typography>
-          <Button variant="contained" color="primary" size="large" className={classes.actionButtons}>
-            Order Now!
-          </Button>
-        </div>
-      </Grid>
-    </Grid>
+    <section id="hero" className={classes.hero}>
+      <Container>
+      <Fade bottom timeout={1500}>
+
+        <Grid container justify="space-between" alignItems="center">
+          <Grid item xs={12} md={5} className={classes.heroContent}>
+            <Typography variant="h2" className={classes.heroTitle} data-aos="fade-up">
+              Branchburgs<br />Best
+            </Typography>
+            <Typography variant="body1" className={classes.heroDescription} data-aos="fade-up" data-aos-delay="100">
+Where it always feels like home.
+            </Typography>
+            <div className={classes.heroButtons} data-aos="fade-up" data-aos-delay="200">
+              <Button variant="contained"  className={classes.button}>
+                Order now!
+              </Button>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={5}>
+            <img src={HeroImage} alt="" className={classes.heroImage} data-aos="zoom-out" data-aos-delay="300" />
+          </Grid>
+        </Grid>
+        </Fade>
+      </Container>
+    </section>
   );
 };
 
