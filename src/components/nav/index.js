@@ -1,39 +1,35 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Button } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    backgroundColor: '#000',
-  },
-  button: {
-    margin: theme.spacing(1),
-  },
-  homeButton: {
-    marginLeft: 0,
-    marginRight: theme.spacing(2),
-  },
-  toolbar: {
-    justifyContent: 'center',
-  },
-}));
+function NavbarLanding(props) {
+    const { currentPage, handlePageChange } = props;
+  
+    return (
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">
+            My Company
+          </Typography>
+          <Button color="inherit" onClick={() => handlePageChange("Home")}>
+            Home
+          </Button>
+          <Button color="inherit" onClick={() => handlePageChange("About")}>
+            About Us
+          </Button>
+          <Button color="inherit" onClick={() => handlePageChange("Catering")}>
+            Catering
+          </Button>
+          <Button color="inherit" onClick={() => handlePageChange("Contact")}>
+            Contact Us
+          </Button>
+          <Button color="inherit" onClick={() => handlePageChange("Gallery")}>
+            Gallery
+          </Button>
+          <Button color="inherit" onClick={() => handlePageChange("Reviews")}>
+            Reviews
+          </Button>
+        </Toolbar>
+      </AppBar>
+    );
+  }
 
-function AppHeader() {
-  const classes = useStyles();
-
-  return (
-    <AppBar position="static" className={classes.appBar}>
-<Toolbar className={classes.toolbar}>
-        <Button className={classes.homeButton} color="inherit">Home</Button>
-        <Button className={classes.button} color="inherit">About</Button>
-        <Button className={classes.button} color="inherit">Menu</Button>
-        <Button className={classes.button} color="inherit">Catering</Button>
-        <Button className={classes.button} color="inherit">Contact</Button>
-        <Button className={classes.button} color="inherit">Gallery</Button>
-        <Button className={classes.button} color="inherit">Order Now</Button>
-      </Toolbar>
-    </AppBar>
-  );
-}
-
-export default AppHeader;
+export default NavbarLanding;

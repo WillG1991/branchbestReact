@@ -7,7 +7,7 @@ import portThree from "../../assets/images/portfolio/fullsize/3.jpeg"
 import portFour from "../../assets/images/portfolio/fullsize/4.jpeg"
 import portFive from "../../assets/images/portfolio/fullsize/5.jpeg"
 import portSix from "../../assets/images/portfolio/fullsize/6.jpeg"
-import portSeven from "../../assets/images/heroImage.jpeg"
+
 
 const Gallery = () => {
   const data = [

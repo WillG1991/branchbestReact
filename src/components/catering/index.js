@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Container, Grid, Typography } from '@material-ui/core';
 import { Assignment, Star, Inbox } from '@material-ui/icons';
+import { Button } from '@mui/material';
 import Fade from 'react-reveal/Fade';
 
 
@@ -63,9 +64,9 @@ function Catering() {
                 Autem tempore quibusdam vel necessitatibus optio ad corporis.
               </Typography>
               <Box textAlign="center">
-                <a href="#" className="more-btn">
-                  Learn More <i className="bx bx-chevron-right"></i>
-                </a>
+              <Button variant="contained" color="primary" endIcon={<i className="bx bx-chevron-right"></i>} href="#">
+  Learn More
+</Button>
               </Box>
             </Box>
           </Grid>

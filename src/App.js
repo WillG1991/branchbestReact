@@ -1,28 +1,48 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-import Hero from './components/hero';
-import AppHeader from './components/nav';
+import NavbarLanding from './components/nav';
+import LandingPage from './pages/Landing';
+import AboutUsPage from "./pages/AboutUsPage";
+import CateringPage from "./pages/CateringPage";
+import ContactPage from "./pages/ContactPage";
+import GalleryPage from "./pages/GalleryPage";
+import ReviewsPage from './pages/ReviewsPage';
 import Footer from './components/footer';
-import Contact from './components/contact';
-import About from './components/about';
-import Menu from './components/menu';
-import MailingList from './components/mailinglist';
-import Catering from './components/catering';
-import Gallery from './components/gallery';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("Home");
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
+  const renderPage = () => {
+    if (currentPage === "Home") {
+      return <LandingPage currentPage={currentPage} handlePageChange={handlePageChange} />;
+    }
+    if (currentPage === "About") {
+      return <AboutUsPage handlePageChange={handlePageChange} />;
+    }
+    if (currentPage === "Catering") {
+      return <CateringPage handlePageChange={handlePageChange} />;
+    }
+    if (currentPage === "Contact") {
+      return <ContactPage handlePageChange={handlePageChange} />;
+    }
+    if (currentPage === "Gallery") {
+      return <GalleryPage handlePageChange={handlePageChange} />;
+    }
+    if (currentPage === "Reviews") {
+      return <ReviewsPage handlePageChange={handlePageChange} />;
+    }
+  };
+
   return (
-    <div className="App">
-<AppHeader/>
-<Hero></Hero>
-<About/>
-<Menu/>
-<MailingList/>
-<Catering/>
-<Contact/>
-<Gallery/>
-<Footer/>
-    </div>
+    <>
+      <NavbarLanding currentPage={currentPage} handlePageChange={handlePageChange} />
+      {renderPage()}
+      <Footer />
+    </>
   );
 }
 
