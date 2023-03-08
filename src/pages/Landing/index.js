@@ -19,7 +19,6 @@ function LandingPage() {
     <Catering/>
     <Contact/>
     <Gallery/>
-    <Footer/>
         </div>
   );
 }
